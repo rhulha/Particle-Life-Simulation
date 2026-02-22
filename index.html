@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Life Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="canvas"></canvas>
+        
+        <div class="ui-panel" id="uiPanel">
+            <div class="panel-header">
+                <h2>Particle Life Simulation</h2>
+                <button class="close-btn" id="closeBtn">✕</button>
+            </div>
+            
+            <div class="panel-content">
+                <div class="control-section">
+                    <label>Particle Count: <span id="particleCountLabel">500</span></label>
+                    <input type="range" id="particleCountSlider" min="1" max="40" value="7" class="slider">
+                </div>
+
+                <div class="control-section">
+                    <label>Particle Types: <span id="particleTypesLabel">4</span></label>
+                    <input type="range" id="particleTypesSlider" min="1" max="10" value="4" class="slider">
+                </div>
+
+                <div class="control-section">
+                    <label>Particle Radius: <span id="particleRadiusLabel">5</span></label>
+                    <input type="range" id="particleRadiusSlider" min="1" max="10" value="5" step="0.5" class="slider">
+                </div>
+
+                <div class="control-section">
+                    <label>Dampening: <span id="dampeningLabel">0.99</span></label>
+                    <input type="range" id="dampeningSlider" min="0.8" max="1.0" value="0.99" step="0.01" class="slider">
+                </div>
+
+                <div class="control-section">
+                    <label>Repulsion Radius: <span id="repulsionLabel">50</span></label>
+                    <input type="range" id="repulsionSlider" min="10" max="200" value="50" class="slider">
+                </div>
+
+                <div class="control-section">
+                    <label>Interaction Radius: <span id="interactionLabel">150</span></label>
+                    <input type="range" id="interactionSlider" min="50" max="500" value="150" class="slider">
+                </div>
+
+                <div class="control-section">
+                    <label>Density Limit: <span id="densityLimitLabel">5</span></label>
+                    <input type="range" id="densityLimitSlider" min="0" max="20" value="5" step="0.5" class="slider">
+                </div>
+
+                <div class="control-section">
+                    <label>Seed: <input type="number" id="seedInput" value="0" class="number-input"></label>
+                </div>
+
+                <div class="control-section checkbox">
+                    <label><input type="checkbox" id="regenerateForcesCheckbox"> Regenerate Forces</label>
+                    <label><input type="checkbox" id="regenerateColorsCheckbox"> Regenerate Colors</label>
+                </div>
+
+                <div class="force-matrix">
+                    <h3>Force Matrix (Type Interactions)</h3>
+                    <div id="forceButtons" class="force-buttons-grid"></div>
+                </div>
+
+                <div class="color-controls">
+                    <h3>Particle Colors</h3>
+                    <div id="colorPickers"></div>
+                </div>
+
+                <div class="button-group">
+                    <button id="resetBtn" class="btn btn-primary">Reset Simulation</button>
+                </div>
+
+                <div class="info">
+                    <p><strong>Controls:</strong></p>
+                    <p>F: Toggle UI | Space: Pause | R: Reset | Mouse: Pan | Scroll: Zoom</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay-info" id="overlayInfo">
+            <p id="fpsCounter">FPS: 0</p>
+            <p id="particleInfo">Particles: 0</p>
+        </div>
+    </div>
+
+    <script src="simulation.js"></script>
+</body>
+</html>
